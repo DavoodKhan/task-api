@@ -11,6 +11,8 @@ node("cd") {
 		
     git url: "https://github.com/DavoodKhan/task-api.git"
     
+	"pwd".execute()
+	
 	"chmod +x ./*.sh".execute()
 	
 	"./movebuildfiles.sh".execute()
