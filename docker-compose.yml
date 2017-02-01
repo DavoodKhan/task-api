@@ -1,7 +1,7 @@
 base:
   image: 10.100.198.200:5000/taskapi
   ports:
-    - 8080
+    - "80" 
   environment:
     - SERVICE_NAME=taskapi
 
@@ -35,4 +35,4 @@ applocal:
 
 db:
   image: mongo
-                     
+  container_name: taskapi.db                   
