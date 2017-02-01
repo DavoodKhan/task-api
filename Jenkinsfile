@@ -11,15 +11,15 @@ node("cd") {
 		
     git url: "https://github.com/DavoodKhan/task-api.git"
     
-	"pwd".execute()
+	//"pwd".execute()
 	
-	"chmod +x ./*.sh".execute()
+	//"chmod +x ./*.sh".execute()
 	
-	"./movebuildfiles.sh".execute()
+	//"./movebuildfiles.sh".execute()
 	
-	"./preload_ch.sh".execute()
+	//"./preload_ch.sh".execute()
 
-	
+	flow.setupCommands(serviceName)
 	flow.provision("prod2.yml")
     flow.buildTests(serviceName, registryIpPort)
     flow.runTests(serviceName, "tests", "")
