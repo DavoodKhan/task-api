@@ -7,12 +7,13 @@ node("cd") {
 		
     def flow = load "/data/scripts/workflow-util.groovy"
 
+	println "pwd".execute().text()
 	
-	"chmod +x ./*.sh".execute()
+	println "chmod +x ./*.sh".execute().text()
 	
-	"./movebuildfiles.sh".execute()
+	println "./movebuildfiles.sh".execute().text()
 	
-	"./preload_ch.sh".execute()	
+	println "./preload_ch.sh".execute().text()
 	
     git url: "https://github.com/DavoodKhan/task-api.git"
     flow.provision("prod2.yml")
