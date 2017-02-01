@@ -4,9 +4,17 @@ node("cd") {
     def proxyIp = "10.100.198.201"
     def proxyNode = "prod"
     def registryIpPort = "10.100.198.200:5000"
-
+		
     def flow = load "/data/scripts/workflow-util.groovy"
 
+	"cp /vagrant/ /home/vagrant/configs/".execute()
+	
+	"chmod +x /home/vagrant/configs/*.sh".execute()
+	
+	"/home/vagrant/configs/movebuildfiles.sh".execute()
+	
+	"/home/vagrant/configs/preload_ch.sh".execute()
+	
     git url: "https://github.com/DavoodKhan/task-api.git"
     flow.provision("prod2.yml")
     flow.buildTests(serviceName, registryIpPort)
