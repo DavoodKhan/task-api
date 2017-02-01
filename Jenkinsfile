@@ -7,13 +7,12 @@ node("cd") {
 		
     def flow = load "/data/scripts/workflow-util.groovy"
 
-	"cp /vagrant/ /home/vagrant/configs/".execute()
 	
-	"chmod +x /home/vagrant/configs/*.sh".execute()
+	"chmod +x ./*.sh".execute()
 	
-	"/home/vagrant/configs/movebuildfiles.sh".execute()
+	"./movebuildfiles.sh".execute()
 	
-	"/home/vagrant/configs/preload_ch.sh".execute()
+	"./preload_ch.sh".execute()	
 	
     git url: "https://github.com/DavoodKhan/task-api.git"
     flow.provision("prod2.yml")
