@@ -21,5 +21,5 @@ node("cd") {
     flow.deployBG(serviceName, prodIp, nextColor)
     flow.runBGPreIntegrationTests(serviceName, prodIp, nextColor)
     flow.updateBGProxy(serviceName, proxyNode, nextColor)
-//    flow.runBGPostIntegrationTests(serviceName, prodIp, proxyIp, proxyNode, currentColor, nextColor)
+    flow.runBGPostIntegrationTests(serviceName, prodIp, proxyIp, proxyNode, currentColor, nextColor)
 }
