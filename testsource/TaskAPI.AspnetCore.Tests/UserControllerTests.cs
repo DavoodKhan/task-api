@@ -38,7 +38,14 @@ namespace TaskAPI.AspnetCore.Tests
         public void SetupHttpClient()
         {
             SetApplicationStartup();
-            string BaseURL = Configuration.AsEnumerable().ToList().First(obj => obj.Key == "TaskAPIURL").Value;
+            string BaseURL = string.Empty;
+//#if DEBUG
+//BaseURL = Configuration.AsEnumerable().ToList().First(obj => obj.Key == "TaskAPIURL").Value;
+
+//#else
+            BaseURL = System.Environment.GetEnvironmentVariable("DOMAIN");            
+//#endif
+
             client = new HttpClient() { BaseAddress = new Uri(BaseURL) };
             client.DefaultRequestHeaders.Clear();
             client.DefaultRequestHeaders.Accept
