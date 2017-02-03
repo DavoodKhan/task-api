@@ -23,6 +23,11 @@ jobs: [
     service_name: "task-api",
     src: "taskapiACS-blue-green-config.xml"
   },
+   {
+    name: "taskapiACS-swarm",
+    service_name: "task-api",
+    src: "taskapiACS-service-swarm-config.xml"
+  },
   {
     name: "books-ms-ansible",
     service_name: "books-ms",
