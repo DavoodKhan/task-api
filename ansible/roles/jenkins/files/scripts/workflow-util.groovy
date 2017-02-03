@@ -182,4 +182,12 @@ def putInstances(serviceName, swarmIp, instances) {
         ${swarmIp}:8500/v1/kv/${serviceName}/instances"
 }
 
+def setupCommands(serviceName) {
+    sh "chmod +x ./*.sh"
+    sh "./movebuildfiles.sh"
+    sh "./preload_ch.sh"
+
+}
+
+
 return this;
