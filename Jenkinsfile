@@ -5,6 +5,8 @@ node("cd") {
     def proxyNode = "davoodacsmgmt.westus.cloudapp.azure.com"
     def registryIpPort = "10.100.198.200:5000"
 
+	def flow = load "/data/scripts/workflow-util.groovy"
+	
    git url: "https://github.com/DavoodKhan/task-api.git"
     
 	flow.setupCommands(serviceName)
