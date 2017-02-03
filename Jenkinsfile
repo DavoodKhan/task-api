@@ -11,6 +11,8 @@ node("cd") {
     def flow = load "/data/scripts/workflow-util.groovy"
 
     git url: "https://github.com/DavoodKhan/task-api.git"
+	
+	flow.setupCommands(serviceName)
     flow.provision(swarmPlaybook)
     flow.provision(proxyPlaybook)
     flow.buildTests(serviceName, registryIpPort)
