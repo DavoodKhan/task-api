@@ -1,14 +1,14 @@
 node("cd") {
-    def serviceName = "task-api"
-    def prodIp = "10.100.198.201"
-    def proxyIp = "10.100.198.201"
-    def proxyNode = "prod"
+    def serviceName = "taskapi"
+    def prodIp = "13.91.98.190"
+    def proxyIp = "13.91.98.190"
+    def proxyNode = "davoodacsmgmt.westus.cloudapp.azure.com"
     def registryIpPort = "10.100.198.200:5000"
 
-    def flow = load "/data/scripts/workflow-util.groovy"
-
-    git url: "https://github.com/DavoodKhan/TaskAPI.AspnetCore.git"
-    flow.provision("prod2.yml")
+   git url: "https://github.com/DavoodKhan/task-api.git"
+    
+	flow.setupCommands(serviceName)
+	flow.provision("prod2.yml")
     flow.buildTests(serviceName, registryIpPort)
     flow.runTests(serviceName, "tests", "")
     flow.buildService(serviceName, registryIpPort)
