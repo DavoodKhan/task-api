@@ -1,27 +1,27 @@
 app:
-  image: 10.100.198.200:5000/books-ms
+  image: 10.100.198.200:5000/taskapi
   ports:
-    - 8080
-  net: books-ms
+    - 80:80
+  net: taskapi
   environment:
-    - SERVICE_NAME=books-ms
-    - DB_HOST=books-ms-db
+    - SERVICE_NAME=taskapi
+    - DB_HOST=taskapi.database
 
 app-blue:
   environment:
-    - SERVICE_NAME=books-ms-blue
+    - SERVICE_NAME=taskapi-blue
   extends:
     service: app
 
 app-green:
   environment:
-    - SERVICE_NAME=books-ms-green
+    - SERVICE_NAME=taskapi-green
   extends:
     service: app
 
 db:
-  container_name: books-ms-db
+  container_name: taskapi.database
   image: mongo
-  net: books-ms
+  net: taskapi
   environment:
-    - SERVICE_NAME=books-ms-db
+    - SERVICE_NAME=taskapi.database
