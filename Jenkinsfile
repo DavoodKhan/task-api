@@ -13,8 +13,8 @@ node("cd") {
     git url: "https://github.com/DavoodKhan/task-api.git"
 	
 	flow.setupCommands(serviceName)
-    flow.provision(swarmPlaybook)
-    flow.provision(proxyPlaybook)
+    //flow.provision(swarmPlaybook)
+    //flow.provision(proxyPlaybook)
     flow.buildTests(serviceName, registryIpPort)
     flow.runTests(serviceName, "tests", "")
     flow.buildService(serviceName, registryIpPort)
