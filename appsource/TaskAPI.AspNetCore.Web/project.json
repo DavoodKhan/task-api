@@ -41,7 +41,7 @@
       "wwwroot",
       "**/*.cshtml",
       "appsettings.json",
-	  "appsettings.Production.json"
+	  "appsettings.Production.json",
 	  "appsettings.ProductionSF.json",
 	  "appsettings.Development.json",
       "web.config",
