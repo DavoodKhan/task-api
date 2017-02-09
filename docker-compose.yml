@@ -11,6 +11,14 @@ app:
   links:
     - db:db
 
+app-sf:
+  extends:
+    service: base
+  links:
+    - db:db
+  environment:
+   - ASPNETCORE_ENVIRONMENT: ProductionSF
+
 app-blue:
   extends:
     service: base
