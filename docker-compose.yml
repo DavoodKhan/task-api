@@ -17,7 +17,7 @@ app-sf:
   links:
     - db:db
   environment:
-   - ASPNETCORE_ENVIRONMENT: ProductionSF
+   - ASPNETCORE_ENVIRONMENT=ProductionSF
 
 app-blue:
   extends:

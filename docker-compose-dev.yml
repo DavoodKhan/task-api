@@ -9,8 +9,7 @@ services:
       - "80"
     links:
       - db:db
-    environment:
-     - ASPNETCORE_ENVIRONMENT: ProductionSF
+
   db:
     container_name: taskapi.database
     image: mongo
