@@ -54,7 +54,7 @@ chmod +x ./*.sh
 
 ./preload_ch.sh
 
-ansible-playbook ansible/service.yml -i \
+ansible-playbook ansible/servicesf.yml -i \
  ansible/hosts/prod --extra-vars \
   "repo_dir=$PWD service_name=taskapi"
   
