@@ -1,5 +1,5 @@
 app:
-  image: 10.100.198.200:5000/taskapi
+  image: davoodkhan/taskapicorelinuxci
   ports:
     - 80:80
   net: taskapi
