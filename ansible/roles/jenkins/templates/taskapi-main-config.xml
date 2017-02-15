@@ -40,7 +40,9 @@
 
 cp /vagrant/ /home/vagrant/configs/ -r
 
-chmod +x /home/vagrant/configs/*.sh
+cd /home/vagrant/configs
+
+chmod +x ./*.sh
 
 ./movebuildfiles.sh
 
