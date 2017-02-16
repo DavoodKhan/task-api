@@ -39,7 +39,8 @@ namespace TaskAPI.Controllers
             else
             {
                 var itemExists = _taskService.Tasks.Any(i => i.Title == request.TaskTitle && i.TaskListId == request.TaskListId && i.IsDeleted != true);
-                if (itemExists)
+                
+                if (itemExists && IsUserOrTaskListInactive(request.TaskListId))
                 {
                     return BadRequest();
                 }
@@ -59,6 +60,18 @@ namespace TaskAPI.Controllers
             }
         }
 
+        private bool IsUserOrTaskListInactive(string taskListId)
+        {            
+            var taskList = _taskService.TaskLists.FirstOrDefault(i => i.TaskListId == taskListId);
+            var userObj = _taskService.Users.FirstOrDefault(i => i.userId == taskList.UserId);
+            bool userOrTaskListDeleted = false;
+            if (taskList != null && userObj != null)
+            {
+                userOrTaskListDeleted = taskList.IsDeleted.GetValueOrDefault() || userObj.IsDeleted.GetValueOrDefault();
+            }
+            return userOrTaskListDeleted;
+        }
+
         // PUT api/task
         [HttpPut]
         public ActionResult Put([FromBody]UpdateTaskRequest request)
@@ -70,7 +83,7 @@ namespace TaskAPI.Controllers
             else
             {
                 var itemExists = _taskService.Tasks.SingleOrDefault(i => i.TaskId == request.TaskId && i.TaskListId == request.TaskListId && i.IsDeleted != true);
-                if (itemExists != null)
+                if (itemExists != null && !IsUserOrTaskListInactive(request.TaskListId))
                 {
                     // parse the updated properties
                     foreach (var item in request.Data)

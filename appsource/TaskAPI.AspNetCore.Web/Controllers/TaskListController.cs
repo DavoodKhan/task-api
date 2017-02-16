@@ -39,10 +39,10 @@ namespace TaskAPI.Controllers
 
             else
             {
-                var userExists = _taskService.Users.Any(i => i.userId == request.UserId);
+                var userExists = _taskService.Users.Any(i => i.userId == request.UserId && i.IsDeleted != true);
                 if (userExists)
                 {
-                    var itemExists = _taskService.TaskLists.Any(i => i.Title == request.TaskListTitle && i.UserId == request.UserId);
+                    var itemExists = _taskService.TaskLists.Any(i => i.Title == request.TaskListTitle && i.UserId == request.UserId && i.IsDeleted != true);
                     if (itemExists)
                     {
                         return BadRequest();
