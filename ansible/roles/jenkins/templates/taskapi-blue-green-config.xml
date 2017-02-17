@@ -42,7 +42,7 @@
           <id>926f81ea-4de3-4713-bc5f-506b8a3197cf</id>
           <remote>https://github.com/DavoodKhan/{{ item.service_name }}.git</remote>
           <credentialsId></credentialsId>
-          <includes>*blue-green*</includes>
+          <includes>blue-green</includes>
           <excludes></excludes>
           <ignoreOnPushNotifications>false</ignoreOnPushNotifications>
         </source>

@@ -19,17 +19,7 @@ jobs: [
     src: "taskapi-blue-green-config.xml"
   },
   {
-    name: "taskapiACS-blue-green",
-    service_name: "task-api",
-    src: "taskapiACS-blue-green-config.xml"
-  },
-   {
-    name: "taskapiACS-swarm",
-    service_name: "task-api",
-    src: "taskapiACS-service-swarm-config.xml"
-  },
-  {
-    name: taskapi-main2,
+    name: taskapi-main,
     service_name: "task-api",
     src: "taskapi-main-config.xml"
   },
